@@ -14,4 +14,10 @@ cliente.on_message = ao_receber
 cliente.connect("broker.hivemq.com", 1883, 60)
 cliente.subscribe("aula3a")
 cliente.loop_forever()
+#cliente.loop_forever()
+
+cliente.loop_start()
+while True:
+    cliente.publish("aula3a", input("Escreva uma mensagem:"))
+cliente.loop_finish()
 
